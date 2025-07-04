@@ -69,9 +69,16 @@ class HealthResponse(BaseModel):
 class ClientApp:
     def __init__(self):
         self.filename = "inputImage.jpg"
-        self.classifier = PredictionPipeline(self.filename)
+        self.classifier = None
 
-# Initialize the client app
+    def get_classifier(self):
+        """Lazy load the classifier"""
+        if self.classifier is None:
+            load_ml_dependencies()
+            self.classifier = PredictionPipeline(self.filename)
+        return self.classifier
+
+# Initialize the client app (without loading ML components)
 clApp = ClientApp()
 
 @app.get("/", response_model=Dict[str, str])
@@ -89,7 +96,7 @@ async def root():
 @app.get("/health", response_model=HealthResponse)
 async def health_check():
     """
-    Health check endpoint
+    Health check endpoint - fast startup without ML dependencies
     """
     from datetime import datetime
     return HealthResponse(
@@ -146,8 +153,9 @@ async def predict_image(request: ImageRequest):
         # Decode and save image
         decodeImage(request.image, clApp.filename)
 
-        # Make prediction
-        result = clApp.classifier.predict()
+        # Make prediction using lazy-loaded classifier
+        classifier = clApp.get_classifier()
+        result = classifier.predict()
 
         processing_time = time.time() - start_time
 

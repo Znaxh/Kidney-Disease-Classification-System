@@ -31,17 +31,8 @@ COPY . .
 # Install the package
 RUN pip install -e .
 
-# Create non-root user for security
-RUN adduser --disabled-password --gecos '' appuser \
-    && chown -R appuser:appuser /app
-USER appuser
-
 # Expose port (will be overridden by cloud platforms)
 EXPOSE 8080
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8080/health || exit 1
-
-# Run FastAPI with uvicorn
+# Run FastAPI with uvicorn (Railway handles health checks)
 CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8080} --workers 1"]
