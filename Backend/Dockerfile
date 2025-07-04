@@ -34,5 +34,5 @@ RUN pip install -e .
 # Expose port (will be overridden by cloud platforms)
 EXPOSE 8080
 
-# Run FastAPI with uvicorn (Railway handles health checks)
-CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8080} --workers 1"]
+# Run FastAPI with Python startup script
+CMD ["python", "start.py"]
