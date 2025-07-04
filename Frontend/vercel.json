@@ -1,4 +1,5 @@
 {
+  "name": "kidney-ai-frontend",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",

@@ -1,0 +1,22 @@
+{
+  "name": "KidneyAI - AI-Powered Kidney Disease Classification",
+  "short_name": "KidneyAI",
+  "description": "AI-powered kidney disease classification from CT scan images using advanced CNN technology",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/kidney-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "health", "productivity"],
+  "lang": "en",
+  "scope": "/",
+  "id": "kidney-ai-app"
+}

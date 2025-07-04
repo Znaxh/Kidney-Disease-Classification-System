@@ -1,8 +1,11 @@
 {
-  "name": "vite",
+  "name": "kidney-ai-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "AI-powered kidney disease classification frontend built with React and Vite",
+  "author": "KidneyAI Team",
+  "homepage": "https://kidney-ai.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
