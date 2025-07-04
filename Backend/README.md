@@ -153,7 +153,7 @@ Access at `http://localhost:5000`
 
 ### Remote Tracking (DagHub)
 ```bash
-export MLFLOW_TRACKING_URI=https://dagshub.com/username/repo.mlflow
+export MLFLOW_TRACKING_URI=https://dagshub.com/Znaxh/Kidney-Disease-Classification-System.mlflow
 export MLFLOW_TRACKING_USERNAME=username
 export MLFLOW_TRACKING_PASSWORD=token
 ```

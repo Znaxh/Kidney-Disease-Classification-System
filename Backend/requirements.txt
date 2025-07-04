@@ -13,7 +13,9 @@ ensure==1.0.2
 joblib
 types-PyYAML
 scipy
-Flask
-Flask-Cors
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+pydantic==2.5.0
 gdown
 -e .
