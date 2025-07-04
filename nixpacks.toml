@@ -1,0 +1,15 @@
+[phases.setup]
+nixPkgs = ["python38", "pip"]
+
+[phases.install]
+cmds = [
+    "cd Backend",
+    "pip install -r requirements.txt",
+    "pip install -e ."
+]
+
+[phases.build]
+cmds = ["echo 'Build complete'"]
+
+[start]
+cmd = "cd Backend && uvicorn app:app --host 0.0.0.0 --port $PORT"
