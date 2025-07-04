@@ -1,31 +1,43 @@
-# 🚀 How to Run the Kidney Disease Classification Project
+# 🚀 KidneyAI - Disease Classification System
 
-## Quick Start (Recommended)
+## 🌐 Live Application
 
-### Option 1: Run Everything at Once
-```bash
-# From the project root directory
-./start_project.sh
-```
+The application is now deployed and accessible online:
 
-This will automatically:
-- ✅ Start the FastAPI backend on port 8080
-- ✅ Start the React frontend on port 5173
-- ✅ Check service health
-- ✅ Show you the URLs to access
+- **Frontend (Main App)**: https://kidney-ai.vercel.app
+- **Backend API**: https://kidney-disease-classification-system-production.up.railway.app
+- **API Documentation**: https://kidney-disease-classification-system-production.up.railway.app/docs
 
-### Option 2: Run Services Separately
+## 🏠 Local Development
 
-#### Start Backend (FastAPI)
+### Backend Setup (FastAPI)
 ```bash
 cd Backend
-./start_backend.sh
+
+# Activate your Python environment
+pyenv activate myenv  # or your preferred environment
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install the local package
+pip install -e .
+
+# Start the server
+python app.py
+# OR
+uvicorn app:app --host 0.0.0.0 --port 8080 --reload
 ```
 
-#### Start Frontend (React)
+### Frontend Setup (React + Vite)
 ```bash
 cd Frontend
-./start_frontend.sh
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
 ## Manual Setup (If Scripts Don't Work)
@@ -62,7 +74,33 @@ npm install
 npm run dev
 ```
 
-## 🌐 Access the Application
+## �️ Clean Project Structure
+
+```
+Kidney-Disease-Classification/
+├── Backend/                 # FastAPI backend server
+│   ├── src/cnnClassifier/  # ML pipeline source code
+│   ├── model/              # Trained ML model (model.h5)
+│   ├── config/             # Configuration files
+│   ├── artifacts/          # Training artifacts
+│   ├── app.py              # Main FastAPI application
+│   ├── requirements.txt    # Python dependencies
+│   ├── Procfile           # Railway deployment config
+│   └── railway.json       # Railway settings
+├── Frontend/               # React.js frontend
+│   ├── src/                # React components and logic
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── App.jsx         # Main application
+│   │   └── main.jsx        # Entry point
+│   ├── public/             # Static assets
+│   │   ├── kidney-icon.svg # Custom app icon
+│   │   └── manifest.json   # PWA manifest
+│   ├── package.json        # Dependencies
+│   └── vercel.json         # Vercel deployment config
+└── RUN_PROJECT.md          # This file
+```
+
+## �🌐 Access the Application
 
 Once both services are running:
 

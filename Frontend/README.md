@@ -22,21 +22,18 @@ The frontend provides an intuitive web interface for:
 ```
 Frontend/
 ├── src/
-│   ├── components/          # Reusable React components
-│   ├── pages/              # Page components
 │   ├── hooks/              # Custom React hooks
-│   ├── utils/              # Utility functions
-│   ├── styles/             # CSS and styling
 │   ├── App.jsx             # Main application component
+│   ├── App.css             # Component styles
 │   ├── main.jsx            # Application entry point
 │   └── index.css           # Global styles
 ├── public/                 # Static assets
-│   ├── vite.svg           # Vite logo
-│   └── favicon.ico        # Favicon
+│   ├── kidney-icon.svg     # Custom app icon
+│   └── manifest.json       # PWA manifest
 ├── index.html             # HTML template
 ├── package.json           # Dependencies and scripts
+├── vercel.json            # Vercel deployment config
 ├── vite.config.js         # Vite configuration
-├── tailwind.config.js     # TailwindCSS configuration
 └── eslint.config.js       # ESLint configuration
 ```
 
