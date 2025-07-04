@@ -6,9 +6,18 @@ import os
 import asyncio
 import time
 from typing import Dict, Any, Optional
-from cnnClassifier.utils.common import decodeImage
-from cnnClassifier.pipeline.prediction import PredictionPipeline
 import base64
+
+# Lazy import heavy dependencies to speed up startup
+decodeImage = None
+PredictionPipeline = None
+
+def load_ml_dependencies():
+    """Load ML dependencies only when needed"""
+    global decodeImage, PredictionPipeline
+    if decodeImage is None:
+        from cnnClassifier.utils.common import decodeImage
+        from cnnClassifier.pipeline.prediction import PredictionPipeline
 
 # Set environment variables
 os.putenv('LANG', 'en_US.UTF-8')
@@ -130,6 +139,9 @@ async def predict_image(request: ImageRequest):
     """
     try:
         start_time = time.time()
+
+        # Load ML dependencies if not already loaded
+        load_ml_dependencies()
 
         # Decode and save image
         decodeImage(request.image, clApp.filename)
