@@ -21,7 +21,8 @@ function App() {
 
   const checkApiHealth = async () => {
     try {
-      const response = await fetch('http://localhost:8080/health')
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+      const response = await fetch(`${apiUrl}/health`)
       if (response.ok) {
         setApiStatus('connected')
       } else {
@@ -66,7 +67,8 @@ function App() {
       const base64Image = await convertToBase64(imageFile)
       setUploadedImage(URL.createObjectURL(imageFile))
 
-      const response = await fetch('http://localhost:8080/predict', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080'
+      const response = await fetch(`${apiUrl}/predict`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
