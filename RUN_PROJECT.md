@@ -5,8 +5,6 @@
 The application is now deployed and accessible online:
 
 - **Frontend (Main App)**: https://kidney-ai.vercel.app
-- **Backend API**: https://kidney-disease-classification-system-production.up.railway.app
-- **API Documentation**: https://kidney-disease-classification-system-production.up.railway.app/docs
 
 ## 🏠 Local Development
 

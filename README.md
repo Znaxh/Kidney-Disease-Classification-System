@@ -58,7 +58,7 @@ The system consists of:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/Kidney-Disease-Classification.git
+git clone https://github.com/znaxh/Kidney-Disease-Classification.git
 cd Kidney-Disease-Classification
 ```
 
