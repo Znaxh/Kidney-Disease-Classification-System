@@ -193,47 +193,6 @@ docker build -t kidney-classification-backend .
 
 # Run the container
 docker run -p 8080:8080 kidney-classification-backend
-```
-
-## ☁️ AWS Deployment (Optional)
-
-### Prerequisites
-1. AWS Account with appropriate permissions
-2. Docker installed locally
-3. AWS CLI configured
-
-### Deployment Steps
-
-1. **Create ECR Repository**
-```bash
-aws ecr create-repository --repository-name kidney-classification
-```
-
-2. **Build and Push Docker Image**
-```bash
-# Get login token
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account-id>.dkr.ecr.us-east-1.amazonaws.com
-
-# Build and tag image
-docker build -t kidney-classification .
-docker tag kidney-classification:latest <account-id>.dkr.ecr.us-east-1.amazonaws.com/kidney-classification:latest
-
-# Push to ECR
-docker push <account-id>.dkr.ecr.us-east-1.amazonaws.com/kidney-classification:latest
-```
-
-3. **Deploy to EC2**
-```bash
-# Launch EC2 instance and install Docker
-sudo apt-get update -y
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker ubuntu
-
-# Pull and run the image
-docker pull <account-id>.dkr.ecr.us-east-1.amazonaws.com/kidney-classification:latest
-docker run -p 8080:8080 <account-id>.dkr.ecr.us-east-1.amazonaws.com/kidney-classification:latest
-```
 
 ## 🧪 Testing
 
